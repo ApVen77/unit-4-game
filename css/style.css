@@ -1,0 +1,30 @@
+body { background-color: teal;}
+
+h1 { background-color: rgb(201, 141, 31);
+    color: white; 
+    width: 33%; 
+    padding-bottom: 50px;
+    padding: 20px; 
+
+}
+.section { background-color: tan; 
+            color: green; 
+            width: 100%; 
+            padding: 60px; 
+}
+
+
+ h2 {
+    height: 175px;
+    width: 40%;
+    border: 5px solid black; 
+}
+
+    #crystals { 
+                
+                border-width: 20%;
+                
+
+    }
+
+}
