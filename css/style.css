@@ -7,6 +7,13 @@ h1 { background-color: rgb(201, 141, 31);
     padding: 20px; 
 
 }
+.crystal-img{
+    width: 70px;
+    height: 70px;
+    float: left; 
+    
+
+}
 .section { background-color: tan; 
             color: green; 
             width: 100%; 
