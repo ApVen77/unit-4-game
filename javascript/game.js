@@ -1,11 +1,16 @@
+$( document ).ready(function(){
+    var Random=Math.floor(Math.random()*120+19)
+    // Generate a random number
+    // Number should be should be between 19 - 120
+    //
+    $('#randomNumber').text(Random);
+    
+    var picture1 = Math.floor(Math.random() * 12 + 1)
+    var picture2 = Math.floor(Math.random() * 12 + 1)
+    var picture3 = Math.floor(Math.random() * 12 + 1)
+    var picture4 = Math.floor(Math.random() * 12 + 1)
 
-//start game
-$(document).ready(function () {
-    var yourTotal = 0
-    wins=0
-    losses=0
-    var crystals;
-
+    //images
     function crystalGen() {
         return {
             picture1: {
@@ -28,64 +33,92 @@ $(document).ready(function () {
 
         };
     }
-    function startGame(){
-        yourTotal = 0;
-        crystals = crystalGen();
-        var randomNumber = Math.floor(Math.random() * 120 + 19) //pick a number between 19-120
-        console.log("random num: " +randomNumber);
-        $("#randomNumber").text(randomNumber);
 
-    }
-    startGame();
-    renderCrystals();
-    function renderCrystals(){
-        for(var key in crystals){
-            var crystalDiv = $("<div class='crystals-button' data-name='" + key + "'>");
-            var crystalImg = $("<img alt='image' class='crystal-img'>").attr("src", crystals[key].imageURL);
-            crystalDiv.append(crystalImg);
-            $("#crystals").append(crystalDiv);
-        }
-    }
-
-
-    $('.numsNeeded').on('click', function (event) {
-        //generate random number
-        
-
-
-        //$('#girl-crystal') on('click', function(Math.floor(Math.random() * 20 + 1))
-        var picture2 = Math.floor(Math.random() * 20 + 1)
-        var picture3 = Math.floor(Math.random() * 20 + 1)
-        var picture4 = Math.floor(Math.random() * 20 + 1)
-
-        var userTotal = 0;
-        var wins = 0;
-        var losses = 0;
-        //declaring score variables
-
-
-
-
-        //check winnings
-
-
-        //game reset 
-        random = Math.floor(Math.random() * 20 + 1);
+    // Global vars
+    // Random number has to be between 1 - 12
+   
+    var userTotal= 0; 
+    var wins= 0;
+    var losses = 0;
+  
+ 
+  function reset(){
+        Random=Math.floor(Math.random()*101+19);
         console.log(random)
-        $('#randomNumber').text(random)
+        $('#randomNumber').text(random);
+        num1= Math.floor(Math.random()*12+1);
+        num2= Math.floor(Math.random()*12+1);
+        num3= Math.floor(Math.random()*12+1);
+        num4= Math.floor(Math.random()*12+1);
+        userTotal= 0;
+        $('wins').text(userTotal);
+        } 
+  //adds the wins to the userTotal
+  function smile(){
+  alert("You won!");
+    wins++; 
+    $('wins').text(wins);
+    reset();
+  }
+  //addes the losses to the userTotal
+  function frown(){
+  alert ("You lose!");
+    losses++;
+    $('').text(losses);
+    reset()
+  }
+  //sets up click for jewels
+    $('picture1').on ('click', function(){
+      userTotal = userTotal + num1;
+      console.log("Your Total Score:= " + userTotal);
+      $('#finalTotal').text(userTotal); 
+            //sets win/lose conditions
+          if (userTotal == Random){
+            alert ("You Win!");
+          }
+          else if ( userTotal > Random){
+            alert("You Lost.");
+          }   
+    })  
+    $(newFunction()).on ('click', function(){
+      userTotal = userTotal + num2;
+      console.log("New userTotal= " + userTotal);
+      $('#finalTotal').text(userTotal); 
+      if (userTotal == Random){
+        alert ("You Win!");
+      }
+      else if ( userTotal > Random){
+        alert("You Lost.");
+      }  
+    })  
+    $('picture3').on ('click', function(){
+      userTotal = userTotal + num3;
+      console.log("New userTotal= " + userTotal);
+      $('Your Total Score').text(userTotal);
+  //sets win/lose conditions
+  if (userTotal == Random){
+    alert ("You Win!");
+  }
+  else if ( userTotal > Random){
+    alert("You Lost.");
+  }  
+    })  
+    $('picture4').on ('click', function(){
+      userTotal = userTotal + num4;
+      console.log("New userTotal= " + userTotal);
+      $('#finalTotal').text(userTotal); 
+        
+      if (userTotal == Random){
+        alert ("You Win!");
+      }
+      else if ( userTotal > Random){
+        alert("You Lost.");
+      }  
+    });   
+  }); 
 
 
-        $('#targetScore')
+function newFunction() {
+    return 'picture2';
+}
 
-        //setting crystals 
-        // $(crystalOne).on('click', function () {
-        //     if (userTotal == randomNumber) {
-        //         console.log('')
-        //     }
-
-
-
-
-        // })
-    })
-})
